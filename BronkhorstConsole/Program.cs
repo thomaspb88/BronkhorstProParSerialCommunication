@@ -11,7 +11,6 @@ namespace BronkhorstConsole
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             //var mfcPort = new BronkhorstSerialPort("COM10", 200);
@@ -43,7 +42,6 @@ namespace BronkhorstConsole
             //}
 
             //var result = NewMethod(@"V:\Passive\AA CABLES\Development\VoltageToCelcius.xlsx");
-            throw
             var result = string.Empty;
             result = Path.GetDirectoryName(@"V:\Passive\AA CABLES\Development\VoltageToCelcius.xlsx");
             result = Path.GetPathRoot(@"V:\Passive\AA CABLES\Development\VoltageToCelcius.xlsx");
