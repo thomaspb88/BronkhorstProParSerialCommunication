@@ -13,7 +13,7 @@ namespace BronkhorstProParSerialCommunication.Test
         public void Test1()
         {
             var apple = true;
-            Assert.True(apple == false);
+            Assert.True(apple == true);
         }
 
         [Fact]

@@ -338,3 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/BronkhorstConsole/PublishBronkhorstConsole.application
+/BronkhorstConsole/PublishedBronkhorstConsole.application
