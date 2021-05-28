@@ -17,5 +17,12 @@ namespace BronkhorstProParSerialCommunication.Test
             var apple = true;
             Assert.True(apple == true);
         }
+
+        [Fact]
+        public void Test3()
+        {
+            var apple = true;
+            Assert.True(apple == true);
+        }
     }
 }
