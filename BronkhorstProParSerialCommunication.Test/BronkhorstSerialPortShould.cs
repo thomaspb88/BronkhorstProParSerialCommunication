@@ -14,5 +14,11 @@ namespace BronkhorstProParSerialCommunication.Test
         {
 
         }
+
+        [Fact]
+        public void Test2()
+        {
+
+        }
     }
 }
