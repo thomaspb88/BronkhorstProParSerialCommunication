@@ -43,7 +43,7 @@ namespace BronkhorstConsole
             //}
 
             //var result = NewMethod(@"V:\Passive\AA CABLES\Development\VoltageToCelcius.xlsx");
-            throw new ArgumentException();
+            throw
             var result = string.Empty;
             result = Path.GetDirectoryName(@"V:\Passive\AA CABLES\Development\VoltageToCelcius.xlsx");
             result = Path.GetPathRoot(@"V:\Passive\AA CABLES\Development\VoltageToCelcius.xlsx");
