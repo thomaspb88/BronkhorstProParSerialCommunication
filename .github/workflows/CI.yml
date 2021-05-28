@@ -33,3 +33,26 @@ jobs:
         
       - name: Build solution
         run : msbuild BronkhorstProParSerialCommunicationTest.sln
+        
+      - name: Deploy solution
+        run : msbuild BronkhorstProParSerialCommunicationTest.sln /p:DeployOnBuild=true
+        env :
+          HAS_BUILT: ${{ job.status }}
+ 
+      - name: Upload Artifact
+        if: HAS_BUILT
+        uses: actions/create-release@v1
+        id: create_release
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+        
+      - uses: csexton/release-asset-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pattern: BronkhorstConsole/bin/Published/*
+          release-url: ${{ steps.create_release.outputs.upload_url }}
+
+        
