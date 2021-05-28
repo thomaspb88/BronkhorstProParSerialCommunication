@@ -7,17 +7,13 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
-    tags:
-      - "bronkhorst-propar-serial-communication/v*"
-  pull_request:
-    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: [windows-latest]
+    runs-on: windows-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -38,21 +34,3 @@ jobs:
         
       - name: Deploy solution
         run : msbuild BronkhorstProParSerialCommunicationTest.sln /p:DeployOnBuild=true
- 
-      - name: Upload Artifact
-        if: ${{ job.status }}
-        uses: actions/create-release@v1
-        id: create_release
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-        
-      - uses: csexton/release-asset-action@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          pattern: BronkhorstConsole/bin/Published/*
-          release-url: ${{ steps.create_release.outputs.upload_url }}
-
-        
